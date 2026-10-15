@@ -6,7 +6,7 @@ apply plugin: "com.android.application"
 
 android {
 	namespace = "su.xash.cs16client"
-	ndkVersion = "30.0.16248370"
+	ndkVersion = "28.2.13676358"
 	compileSdk = 36
 
 	defaultConfig {
