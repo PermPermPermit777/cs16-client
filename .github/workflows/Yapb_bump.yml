@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@main
         with:
           fetch-depth: 0
-          submodules: 0
+          submodules: true
       - run: git submodule update --remote --recursive 3rdparty/yapb
       - uses: planetscale/ghcommit-action@main
         if: success()
