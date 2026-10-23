@@ -1,4 +1,4 @@
-name: Recovery
+name: bump yapb update
 
 on: workflow_dispatch
 
@@ -10,7 +10,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: 0
-      - run: git submodule update --remote --recursive
+      - run: git submodule update --remote --recursive 3rdparty/yapb
       - uses: planetscale/ghcommit-action@main
         if: success()
         with:
