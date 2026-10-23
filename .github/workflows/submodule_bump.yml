@@ -1,0 +1,22 @@
+name: Recovery
+
+on: workflow_dispatch
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+          submodules: 0
+      - run: git submodule update --remote --recursive
+      - uses: planetscale/ghcommit-action@main
+        if: success()
+        with:
+          commit_message: "chore: Bump Submodule to latest commit"
+          repo: ${{ github.repository }}
+          branch: ${{ github.head_ref || github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          
