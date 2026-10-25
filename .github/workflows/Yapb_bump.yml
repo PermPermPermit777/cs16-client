@@ -1,4 +1,4 @@
-name: bump yapb update
+name: bump Yapb to latest commit
 
 on:
    workflow_dispatch:
@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - run: git submodule update --remote --recursive 3rdparty/yapb
+      - run: git submodule update --init --remote --recursive 3rdparty/yapb
       - uses: planetscale/ghcommit-action@main
         if: success()
         with:
