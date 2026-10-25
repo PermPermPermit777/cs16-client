@@ -13,13 +13,8 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
+          persist-credentials: true
       - run: git submodule update --init --remote --recursive 3rdparty/yapb
-      - uses: planetscale/ghcommit-action@main
-        if: success()
+      - uses: stefanzweifel/git-auto-commit-action@master
         with:
-          commit_message: "chore: Bump Yapb to latest commit"
-          repo: ${{ github.repository }}
-          branch: ${{ github.head_ref || github.ref_name }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+          commit_message: Bump Yapb to latest commit
